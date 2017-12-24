@@ -1,0 +1,27 @@
+ROOT_DIR: ./
+EXP_DIR: faster_rcnn_end2end
+PIXEL_MEANS: [[[104.0, 117.0, 123.0]]]
+PIXEL_STDS: [[[58.82, 58.82, 58.82]]]
+TRAIN:
+  DATA_ROOT: /home/priv-lab1/Database/VOC_PASCAL
+  LABELMAP_PATH: ./voc_label_map.txt
+  SOURCE: /home/priv-lab1/Database/VOC_PASCAL/detection_set/2007trainval_2012trainval_image2xml.txt
+  SNAPSHOT_INFIX: 'ss'
+  SNAPSHOT_ITERS: 10000
+  # SCALES: [400, 600, 800, 1000]
+  SCALES: [600]
+  MAX_SIZE: 1000  
+  HAS_RPN: True
+  IMS_PER_BATCH: 1
+  # ONLY_INSIDE_ANCHORS: False
+  BBOX_NORMALIZE_TARGETS_PRECOMPUTED: True
+  RPN_POSITIVE_OVERLAP: 0.7 
+  RPN_NORMALIZE_TARGETS: True
+  RPN_BATCHSIZE: 256 
+  PROPOSAL_METHOD: gt
+  BG_THRESH_LO: 0.0 
+
+TEST:
+  HAS_RPN: True
+  SCALES: [600]
+  MAX_SIZE: 1000
